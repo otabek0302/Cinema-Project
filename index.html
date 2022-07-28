@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie DB</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap&subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="sass/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__search">
+            <form action="#">
+                <input type="text" placeholder="Поиск">
+            </form>
+        </div>
+        <div class="header__logo">
+            <img src="icons/Logotype.svg" alt="logo">
+        </div>
+    </header>
+    <main class="promo">
+        <div class="promo__menu">
+            <nav class="promo__menu-list">
+                <ul>
+                    <li><a data-type="movie" class="promo__menu-item promo__menu-item_active" href="#">Фильмы</a></li>
+                    <li><a data-type="serial" class="promo__menu-item" href="#">Сериалы</a></li>
+                    <li><a data-type="cartoon" class="promo__menu-item" href="#">Мультфильмы</a></li>
+                    <li><a data-type="clip" class="promo__menu-item" href="#">Клипы</a></li>
+                    <li><a data-type="trailer" class="promo__menu-item" href="#">Трейлеры</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="promo__content">
+            <div class="promo__bg">
+                <div class="promo__genre"></div>
+                <div class="promo__title"></div>
+                <div class="promo__descr"> </div>
+                <div class="promo__ratings">
+                    <span class="imdb"></span>
+                    <span class="movieSearch"></span>
+                </div>
+            </div>
+            <div class="promo__interactive">
+                <div>
+                    <div class="promo__interactive-title">ПРОСМОТРЕННЫЕ ФИЛЬМЫ</div>
+                    <ul class="promo__interactive-list">
+                    </ul>
+                </div>
+                <div>
+                    <form class="add">
+                        <div class="promo__interactive-title">ДОБАВИТЬ НОВЫЙ ФИЛЬМ</div>
+                        <span>Введите название фильма</span>
+                        <input class="adding__input" type="text" placeholder="Что уже посмотрено...?">
+                        <span>Сделать его любимым?</span>
+                        <input type="checkbox">
+                        <span class="yes">Да!</span>
+                        <button>Подтвердить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="promo__adv">
+            <div class="promo__adv-title">Реклама от спонсоров</div>
+            <img src="img/content_1.jpg" alt="some picture" class="ad1">
+            <img src="img/content_2.jpg" alt="some picture" class="ad2">
+            <img src="img/content_3.png" alt="some picture" class="ad3">
+        </div>
+    </main>
+     <div id="myModal" class="modal">
+        <!-- Модальное содержание -->
+        <div class="modal__content">
+            <div class="modal__content_head">
+                <div class="content_head_title">
+                    <h3 class="content_head_title_h3">Guardians of the Galaxy <small class="year">(2022)</small> </h3>
+                </div>
+                <div class="content_head_ratings">
+                        <div class="stars">
+                            <small>&#9733;</small>
+                            <small>&#9733;</small>
+                            <small>&#9733;</small>
+                            <small>&#9733;</small>
+                            <small>&#9733;</small>
+                        </div>
+                        <div class="rating">
+                            <span class="metascore">76/5 </span>
+                            <span class="votes">(1.245.345 Vote)</span>
+                        </div>
+                </div>
+            </div>
+            <div class="modal__content_box">
+                <div class="modal__content_img">
+                <img src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" alt="" srcset="">
+            </div>
+            <div class="modal__content_text">
+                <div class="details">
+                    <p>Year:<span class="year"> 2022</span></p>
+                    <p>Country:<span class="country"> USA</span></p>
+                    <p>Language:<span class="lang"> ENglish</span></p>
+                    <p>Genre:<span class="genre"> Action, Adventure, Comedy, Sci-Fi</span></p>
+                    <p>Time:<span class="runtime">Long  121 min</span></p>
+                    <p>Date:<span class="released"> 01 Aug 2014</span></p>
+
+                    <p>Budget:<span class="budget">$333,718,600</span></p>
+
+                    <p>Director:<span class="director"> James Gunn</span></p>
+                    <p>Description:<span class="description">
+                     A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.
+                    </span>
+                    </p>
+                    <p>Acttors:<span class="actors"></span></p>
+                </div>
+                <span class="close">Close</span>
+            </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>
