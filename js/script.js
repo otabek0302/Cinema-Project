@@ -1,26 +1,12 @@
 import { movies } from '../modules/db.js';
-/* Задания на урок:
 
-1) Удалить все рекламные блоки со страницы (правая часть сайта)
-
-2) Изменить жанр фильма, поменять "комедия" на "драма"
-
-3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
-Реализовать только при помощи JS
-
-4) Список фильмов на странице сформировать на основании данных из этого JS файла.
-Отсортировать их по алфавиту 
-
-5) Добавить нумерацию выведенных фильмов */
-
-'use strict';
 //Variables
 let ul = document.querySelector('.promo__interactive-list');
 let modal = document.querySelector('.modal');
 let promo__bg = document.querySelector('.promo__bg'),
-    promo__genre = document.querySelector('.promo__genre'),
-    promo__title = document.querySelector('.promo__title'),
-    promo__descr = document.querySelector('.promo__descr'),
+    promo__genre = promo__bg.querySelector('.promo__genre'),
+    promo__title = promo__bg.querySelector('.promo__title'),
+    promo__descr = promo__bg.querySelector('.promo__descr'),
     imdb = document.querySelector('.imdb'),
     movieSearch = document.querySelector('.movieSearch');
 
@@ -28,30 +14,12 @@ let content_head_title_h3 = document.querySelector('.content_head_title_h3'),
 year = document.querySelector('.year')
 
 
-
-
-
-
-
-
-
-
-
-const movieDB = {
-    movies: [
-        "Логан",
-        "Лига справедливости",
-        "Ла-ла лэнд",
-        "Одержимость",
-        "Скотт Пилигрим против..."
-    ]
-};
-
 let newGenres = [];
 
 //Sorted
 function reload(arr) {
-    ul.innerHtml = "";
+    ul.innerHTML = ""
+
     for (const item of arr) {
         let li = document.createElement('li'),
             a = document.createElement('a'),
