@@ -1,17 +1,4 @@
 import { movies } from '../modules/db.js';
-/* Задания на урок:
-
-1) Удалить все рекламные блоки со страницы (правая часть сайта)
-
-2) Изменить жанр фильма, поменять "комедия" на "драма"
-
-3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
-Реализовать только при помощи JS
-
-4) Список фильмов на странице сформировать на основании данных из этого JS файла.
-Отсортировать их по алфавиту 
-
-5) Добавить нумерацию выведенных фильмов */
 
 'use strict';
 //Variables
@@ -24,15 +11,23 @@ let promo__bg = document.querySelector('.promo__bg'),
     imdb = document.querySelector('.imdb'),
     movieSearch = document.querySelector('.movieSearch');
 
+let inpSearch = document.querySelector('#search')
+
+//Modal
 let content_head_title_h3 = document.querySelector('.content_head_title_h3'),
-year = document.querySelector('.year')
-
-
-
-
-
-
-
+    year = document.querySelector('.year'),
+    metascore = document.querySelector('.metascore'),
+    votes = document.querySelector('.votes'),
+    modal_img = document.querySelector('.modal_img'),
+    country = document.querySelector('.country'),
+    lang = document.querySelector('.lang'),
+    genre = document.querySelector('.genre'),
+    runtime = document.querySelector('.runtime'),
+    released = document.querySelector('.released'),
+    budget = document.querySelector('.budget'),
+    director = document.querySelector('.director'),
+    description = document.querySelector('.description'),
+    actors = document.querySelector('.actors');
 
 
 
@@ -48,10 +43,29 @@ const movieDB = {
 };
 
 let newGenres = [];
+//Serach
+// inpSearch.onkeyup = () => {
+//     let filtered = movies.filter(item => item.title.includes(inpSearch.ariaValueMax.toLowerCase()))
+//     reload(filtered)
+// }
+
+inpSearch.onkeyup = () => {
+    let filtered = movies.filter(item => {
+        let title = item.title.toLowerCase()
+        let value = inpSearch.value.toLowerCase().trim()
+
+        if(title.includes(value)) {
+            return item
+        }
+    })
+    reload(filtered)
+}
+
 
 //Sorted
 function reload(arr) {
-    ul.innerHtml = "";
+    ul.innerHTML = "";
+    showMovie(movies[0])
     for (const item of arr) {
         let li = document.createElement('li'),
             a = document.createElement('a'),
@@ -69,7 +83,6 @@ function reload(arr) {
         
             a.onclick = () => {
                 modal.style.display = 'block';
-
                 //Function change showmovies[index]
                 showMovie(item);
                 modalShow(item);
@@ -81,14 +94,15 @@ function reload(arr) {
             if (!newGenres.includes(item.genres)) {
                 newGenres.push(item.genres)
                 console.log(newGenres);
-            }
-
-        
+            }   
     }
 }
+reload(movies)
+
+
 //Function for bunner
 function showMovie(data) {
-    // promo__bg.style.background = `url("${}") center center/cover no-repeat;`
+    promo__bg.style.background = `url('${data.img}') center center/cover no-repeat;`
     promo__genre.innerHTML = `${data.genres}`,
     promo__title.innerHTML = `${data.title}`,
     promo__descr.innerHTML = `${data.plot}`,
@@ -96,12 +110,23 @@ function showMovie(data) {
     movieSearch.innerHTML = `Meta Score:${data.metascore}`
         
 }
-showMovie(movies[0])
-reload(movies)
+
 
 function modalShow(data) {
     content_head_title_h3.innerHTML = data.title;
     year.innerHTML = data.yaer;
+    metascore.innerHTML = `Meta Score:${data.metascore}`
+    votes.innerHTML = `(${data.imdbVotes} Vote)`;
+    modal_img.setAttribute('src', `${data.poster}`);
+    country.innerHTML = data.country;
+    lang.innerHTML = data.language;
+    genre.innerHTML = data.genre;
+    runtime.innerHTML = data.runtime;
+    released.innerHTML = data.released;
+    budget.innerHTML = data.boxOffice;
+    director.innerHTML = data.director;
+    description.innerHTML = data.plot;
+    actors.innerHTML = data.actors;
 }
 
 //Function del
@@ -123,8 +148,9 @@ promo__menu_item.forEach(item => {
         let type = item.getAttribute('data-type')
         movies.filter(el => {
             if (el.type.toLowerCase() == type.toLowerCase()) {
-                let filtered = [el];
-                reload(filtered)
+                let genre = [el];
+                reload(genre)
+                console.log(genre);
             }
         });
     }
