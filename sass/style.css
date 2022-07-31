@@ -127,7 +127,7 @@
 
 .promo__bg {
   height: 360px;
-  background: url("../img/mars.webp") center center/cover no-repeat;
+  background: url("../img/bg.jpg") center center/cover no-repeat;
   background-position: top;
   padding: 107px 0 0 61px;
 }
@@ -215,12 +215,14 @@
   display: inline-block;
   position: relative;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 18px;
   color: #000000;
   margin-bottom: 15px;
   padding-right: 40px;
+  padding-left: 20px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .promo__interactive-item a {
@@ -263,13 +265,14 @@
 .promo__interactive-item:hover span {
   display: block;
   position: absolute;
-  left: -30px;
+  left: 0;
   top: 35%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   width: 20px;
   height: 20px;
   background: url("../icons/Star.svg") center center/cover no-repeat;
+  cursor: pointer;
 }
 
 .promo__interactive .add .promo__interactive-title {

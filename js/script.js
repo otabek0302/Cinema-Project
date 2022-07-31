@@ -1,9 +1,5 @@
 import { movies } from '../modules/db.js';
 
-<<<<<<< HEAD
-'use strict';
-=======
->>>>>>> 8eb42304446233b59177e7f103edb06ea1004365
 //Variables
 let ul = document.querySelector('.promo__interactive-list');
 let modal = document.querySelector('.modal');
@@ -14,7 +10,7 @@ let promo__bg = document.querySelector('.promo__bg'),
     imdb = document.querySelector('.imdb'),
     movieSearch = document.querySelector('.movieSearch');
 
-<<<<<<< HEAD
+
 let inpSearch = document.querySelector('#search')
 
 //Modal
@@ -33,31 +29,9 @@ let content_head_title_h3 = document.querySelector('.content_head_title_h3'),
     description = document.querySelector('.description'),
     actors = document.querySelector('.actors');
 
-
-
-
-const movieDB = {
-    movies: [
-        "Логан",
-        "Лига справедливости",
-        "Ла-ла лэнд",
-        "Одержимость",
-        "Скотт Пилигрим против..."
-    ]
-};
-=======
-let content_head_title_h3 = document.querySelector('.content_head_title_h3'),
-year = document.querySelector('.year')
-
->>>>>>> 8eb42304446233b59177e7f103edb06ea1004365
-
 let newGenres = [];
-//Serach
-// inpSearch.onkeyup = () => {
-//     let filtered = movies.filter(item => item.title.includes(inpSearch.ariaValueMax.toLowerCase()))
-//     reload(filtered)
-// }
 
+// Serach
 inpSearch.onkeyup = () => {
     let filtered = movies.filter(item => {
         let title = item.title.toLowerCase()
@@ -73,25 +47,25 @@ inpSearch.onkeyup = () => {
 
 //Sorted
 function reload(arr) {
-<<<<<<< HEAD
     ul.innerHTML = "";
     showMovie(movies[0])
-=======
     ul.innerHTML = ""
 
->>>>>>> 8eb42304446233b59177e7f103edb06ea1004365
     for (const item of arr) {
         let li = document.createElement('li'),
             a = document.createElement('a'),
             del = document.createElement('div'),
+            star = document.createElement('div'),
             span = document.createElement('span');
         
             li.classList.add('promo__interactive-item'),
             del.classList.add('delete'),
+            star.classList.add('star')    
         
             a.innerHTML = `${movies.indexOf(item) + 1}. ${item.title}`
         
-            li.append(span,a,del)
+            star.append(span)
+            li.append(star,a,del)
             ul.append(li);
 
         
@@ -104,7 +78,7 @@ function reload(arr) {
             del.onclick = () => {
                 delItem(item)
             }
-        
+            // For New Genre
             if (!newGenres.includes(item.genres)) {
                 newGenres.push(item.genres)
                 console.log(newGenres);
